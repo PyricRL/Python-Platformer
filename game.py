@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from scripts.entities import PhysicsEntity
-from scripts.utils import load_image, load_images, load_images1
+from scripts.utils import load_image
 from scripts.tilemap import Tilemap
 from scripts.clouds import Clouds
 
@@ -20,13 +20,13 @@ class Game:                 # Use classes because its oop and just better
         self.movement = [False, False]
 
         self.assets = {
-            'decor': load_images('tiles/decor'),
-            'grass': load_images('tiles/grass'),
-            'large_decor': load_images('tiles/large_decor'),
-            'stone': load_images('tiles/stone'),
+            'decor': load_image('tiles/decor'),
+            'grass': load_image('tiles/grass'),
+            'large_decor': load_image('tiles/large_decor'),
+            'stone': load_image('tiles/stone'),
             'player': load_image('entities/player.png'),
             'background': load_image('background.png'),
-            'clouds': load_images('clouds'),
+            'clouds': load_image('clouds'),
         }
         
         self.clouds = Clouds(self.assets['clouds'], count=16)
@@ -40,8 +40,6 @@ class Game:                 # Use classes because its oop and just better
         # so it gets a camera moving feel but is actually everything else moving. Another reason to use positions instead of velocity for the player
         # in certain cases
         # line 37/41 in tilemap.py and line 54 in entities.py
-
-        load_images1()
     
     def run(self):
         while True:
